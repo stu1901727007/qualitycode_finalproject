@@ -1,9 +1,6 @@
 package uni.plovdiv.services;
 
-import uni.plovdiv.models.Project;
-import uni.plovdiv.models.Task;
-import uni.plovdiv.models.TaskMessage;
-import uni.plovdiv.models.TaskStatus;
+import uni.plovdiv.models.*;
 import uni.plovdiv.repositories.interfaces.TaskRepoInterface;
 import uni.plovdiv.services.interfaces.TaskServiceInterface;
 
@@ -78,6 +75,17 @@ public class TaskService implements TaskServiceInterface {
     public Task changeTaskStatus(Task task, TaskMessage message) {
 
         task.setCurrentStatus( message.getStatus() );
+
+        //this.taskRepo.save(task); //if there is a database
+
+        return task;
+    }
+
+
+    @Override
+    public Task assignEmployee(Task task, Employee employee) {
+
+        task.setAssignedEmployee(employee);
 
         //this.taskRepo.save(task); //if there is a database
 

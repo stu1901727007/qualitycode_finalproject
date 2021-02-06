@@ -1,9 +1,6 @@
 package uni.plovdiv.services.interfaces;
 
-import uni.plovdiv.models.Project;
-import uni.plovdiv.models.Task;
-import uni.plovdiv.models.TaskMessage;
-import uni.plovdiv.models.TaskStatus;
+import uni.plovdiv.models.*;
 
 public interface TaskServiceInterface {
 
@@ -36,4 +33,11 @@ public interface TaskServiceInterface {
      */
     Task assignSubTask(Task task, Task subTask);
 
+    /**
+     *
+     * @param task
+     * @param employee
+     * @return
+     */
+    Task assignEmployee(Task task, Employee employee);
 }
