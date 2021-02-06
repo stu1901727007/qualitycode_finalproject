@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 
@@ -38,8 +39,10 @@ class EmployeeServiceTest {
         employee.setRole(EmployeeRoles.REGULAR_DEVELOPER);
 
         List<Employee> employees = Arrays.asList(employee);
+
         doReturn(employees).when(this.employeeRepo).findAll();
         doReturn(employee).when(this.employeeRepo).findById(1);
+
         this.employeeService = new EmployeeService(this.employeeRepo);
     }
 
@@ -74,6 +77,11 @@ class EmployeeServiceTest {
     }
 
     @Test
-    void deleteEmployee() {
+    void testDeleteEmployee() {
+
+        Employee employee = this.employeeRepo.findById(1);
+        this.employeeService.deleteEmployee(employee);
+
+        assertNotNull(employee.getDeletedAt());
     }
 }
