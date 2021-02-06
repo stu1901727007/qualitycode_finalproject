@@ -23,10 +23,13 @@ public class EmployeeService implements EmployeeServiceInterface {
     public Employee createEmployee(String firstName, String lastName, EmployeeRoles role) throws IllegalArgumentException {
 
         if( firstName == null )
-            throw new IllegalArgumentException("Please provide valid first name");
+            throw new IllegalArgumentException("Въведете валидно име");
 
         if( lastName == null )
-            throw new IllegalArgumentException("Please provide valid last name");
+            throw new IllegalArgumentException("Въведете валидно презиме");
+
+        if( role == null )
+            throw new IllegalArgumentException("Въведете валидна роля");
 
         Employee employee = new Employee();
 
