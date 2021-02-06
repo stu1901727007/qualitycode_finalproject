@@ -3,15 +3,13 @@ package uni.plovdiv.services.interfaces;
 import uni.plovdiv.models.Project;
 import uni.plovdiv.models.Task;
 
-import java.util.ArrayList;
-
 public interface ProjectServiceInterface {
 
     /**
      * @param name
      * @return
      */
-    Project createProject(String name);
+    Project createProject(String name) throws IllegalArgumentException;
 
     /**
      * @param project

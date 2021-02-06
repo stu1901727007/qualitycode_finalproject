@@ -1,6 +1,9 @@
 package uni.plovdiv.services.interfaces;
 
-import uni.plovdiv.models.*;
+import uni.plovdiv.models.Employee;
+import uni.plovdiv.models.Project;
+import uni.plovdiv.models.Task;
+import uni.plovdiv.models.TaskStatus;
 
 public interface TaskServiceInterface {
 

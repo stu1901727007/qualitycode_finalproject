@@ -41,13 +41,6 @@ public class Project {
     private List<Project> assignedProjects;
 
     /**
-     * @param name
-     */
-    public Project(String name) {
-        this.name = name;
-    }
-
-    /**
      * @return
      */
     public String getId() {

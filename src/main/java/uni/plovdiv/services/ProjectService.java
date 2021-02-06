@@ -2,7 +2,6 @@ package uni.plovdiv.services;
 
 import uni.plovdiv.models.Project;
 import uni.plovdiv.models.Task;
-import uni.plovdiv.repositories.ProjectRepo;
 import uni.plovdiv.repositories.interfaces.ProjectRepoInterface;
 import uni.plovdiv.services.interfaces.ProjectServiceInterface;
 
@@ -24,9 +23,17 @@ public class ProjectService implements ProjectServiceInterface {
      * @return
      */
     @Override
-    public Project createProject(String name) {
+    public Project createProject(String name) throws IllegalArgumentException {
 
-        return new Project(name);
+        if (name == null)
+            throw new IllegalArgumentException("Моля, въвдете валидно име на проект");
+
+        Project project = new Project();
+        project.setName(name);
+        project.setCreatedAt(new Date());
+        project.setUpdatedAt(new Date());
+
+        return project;
     }
 
     /**

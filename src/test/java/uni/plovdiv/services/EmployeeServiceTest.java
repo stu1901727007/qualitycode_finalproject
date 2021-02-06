@@ -5,11 +5,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import uni.plovdiv.models.Employee;
 import uni.plovdiv.models.EmployeeRoles;
-import uni.plovdiv.repositories.EmployeeRepo;
 import uni.plovdiv.repositories.interfaces.EmployeeRepoInterface;
 import uni.plovdiv.services.interfaces.EmployeeServiceInterface;
 
@@ -18,7 +16,6 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 
@@ -26,7 +23,6 @@ class EmployeeServiceTest {
 
     private EmployeeRepoInterface employeeRepo;
     private EmployeeServiceInterface employeeService;
-
 
     @BeforeEach
     void setUp() {

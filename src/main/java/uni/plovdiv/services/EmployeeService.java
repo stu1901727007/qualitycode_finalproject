@@ -1,10 +1,9 @@
 package uni.plovdiv.services;
 
-import uni.plovdiv.models.*;
+import uni.plovdiv.models.Employee;
+import uni.plovdiv.models.EmployeeRoles;
 import uni.plovdiv.repositories.interfaces.EmployeeRepoInterface;
-import uni.plovdiv.repositories.interfaces.TaskMessageRepoInterface;
 import uni.plovdiv.services.interfaces.EmployeeServiceInterface;
-import uni.plovdiv.services.interfaces.TaskMessageServiceInterface;
 
 import java.util.Date;
 

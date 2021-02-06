@@ -1,6 +1,9 @@
 package uni.plovdiv.services;
 
-import uni.plovdiv.models.*;
+import uni.plovdiv.models.Employee;
+import uni.plovdiv.models.Project;
+import uni.plovdiv.models.Task;
+import uni.plovdiv.models.TaskStatus;
 import uni.plovdiv.repositories.TaskMessageRepo;
 import uni.plovdiv.repositories.interfaces.TaskRepoInterface;
 import uni.plovdiv.services.interfaces.TaskServiceInterface;
