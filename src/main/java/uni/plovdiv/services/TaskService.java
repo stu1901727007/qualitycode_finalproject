@@ -1,6 +1,7 @@
 package uni.plovdiv.services;
 
 import uni.plovdiv.models.*;
+import uni.plovdiv.repositories.TaskMessageRepo;
 import uni.plovdiv.repositories.interfaces.TaskRepoInterface;
 import uni.plovdiv.services.interfaces.TaskServiceInterface;
 
@@ -72,11 +73,18 @@ public class TaskService implements TaskServiceInterface {
      * @return
      */
     @Override
-    public Task changeTaskStatus(Task task, TaskMessage message) {
+    public Task changeTaskStatus(Task task, TaskStatus status, String message) throws Exception {
 
-        task.setCurrentStatus( message.getStatus() );
+        if( task.getCurrentStatus() == TaskStatus.COMPLETED )
+            throw new Exception("Не може да смените статуса на приключена задача!");
+
+        task.setCurrentStatus( status );
 
         //this.taskRepo.save(task); //if there is a database
+
+        //Create new message
+        TaskMessageService taskMessageService = new TaskMessageService( new TaskMessageRepo());
+        taskMessageService.createMessage(task, status, message);
 
         return task;
     }

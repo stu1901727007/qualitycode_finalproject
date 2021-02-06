@@ -14,6 +14,6 @@ public interface TaskMessageServiceInterface {
      * @param message
      * @return
      */
-    TaskMessage createMessage(Task task, TaskStatus status, String message) throws IllegalArgumentException;
+    TaskMessage createMessage(Task task, TaskStatus status, String message) throws Exception;
 
 }

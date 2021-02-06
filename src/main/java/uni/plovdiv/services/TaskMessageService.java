@@ -18,10 +18,13 @@ public class TaskMessageService implements TaskMessageServiceInterface {
         this.taskMessageRepo = taskMessageRepo;
     }
 
-    public TaskMessage createMessage(Task task, TaskStatus status, String message) throws IllegalArgumentException
+    public TaskMessage createMessage(Task task, TaskStatus status, String message) throws Exception
     {
         if( message == null )
-            throw new IllegalArgumentException("Please provide valid message attribute");
+            throw new IllegalArgumentException("Моля, подайте валидна стойност за съобщението");
+
+        if( task.getCurrentStatus() == TaskStatus.COMPLETED )
+            throw new Exception("Не може да смените статуса на приключена задача!");
 
         TaskMessage taskMessage = new TaskMessage();
         taskMessage.setTask(task);

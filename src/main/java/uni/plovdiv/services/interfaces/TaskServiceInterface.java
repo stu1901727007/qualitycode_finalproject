@@ -13,10 +13,11 @@ public interface TaskServiceInterface {
     /**
      *
      * @param task
+     * @param status
      * @param message
      * @return
      */
-    Task changeTaskStatus(Task task, TaskMessage message);
+    Task changeTaskStatus(Task task, TaskStatus status, String message) throws Exception;
 
 
     /**
