@@ -23,9 +23,6 @@ class ProjectServiceTest {
     private ProjectServiceInterface projectService;
     private ProjectRepoInterface projectRepo;
 
-//    private TaskServiceInterface taskService;
-//    private TaskRepoInterface taskRepo;
-
     @BeforeEach
     void setUp() {
         this.projectRepo = mock(ProjectRepoInterface.class);
@@ -54,7 +51,7 @@ class ProjectServiceTest {
 
     @Test
     void testCreateProjectWithNullName() {
-        assertThrows(Exception.class, () -> this.projectService.createProject(null));
+        assertThrows(NullPointerException.class, () -> this.projectService.createProject(null));
     }
 
     @Test
@@ -64,7 +61,7 @@ class ProjectServiceTest {
     }
 
     @Test
-    void deleteProject() {
+    void testDeleteProject() {
         Project project = this.projectRepo.findById(1);
         this.projectService.deleteProject(project);
         assertNotNull(project.getDeletedAt());

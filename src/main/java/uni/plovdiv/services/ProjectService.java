@@ -6,7 +6,7 @@ import uni.plovdiv.repositories.interfaces.ProjectRepoInterface;
 import uni.plovdiv.services.interfaces.ProjectServiceInterface;
 import uni.plovdiv.utils.DateUtils;
 
-import java.util.Date;
+import java.util.Objects;
 
 public class ProjectService implements ProjectServiceInterface {
 
@@ -24,13 +24,10 @@ public class ProjectService implements ProjectServiceInterface {
      * @return
      */
     @Override
-    public Project createProject(String name) throws IllegalArgumentException {
-
-        if (name == null)
-            throw new IllegalArgumentException("Моля, въвдете валидно име на проект");
+    public Project createProject(String name) throws NullPointerException {
 
         Project project = new Project();
-        project.setName(name);
+        project.setName(Objects.requireNonNull(name, "Моля, въвдете валидно име на проект"));
         project.setCreatedAt(DateUtils.Time());
         project.setUpdatedAt(DateUtils.Time());
 

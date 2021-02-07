@@ -11,7 +11,7 @@ public interface TaskServiceInterface {
      * @param name
      * @return
      */
-    Task createTask(String name, Project project);
+    Task createTask(String name, Project project) throws NullPointerException;
 
     /**
      *

@@ -7,7 +7,7 @@ import uni.plovdiv.repositories.interfaces.TaskMessageRepoInterface;
 import uni.plovdiv.services.interfaces.TaskMessageServiceInterface;
 import uni.plovdiv.utils.DateUtils;
 
-import java.util.Date;
+import java.util.Objects;
 
 public class TaskMessageService implements TaskMessageServiceInterface {
 
@@ -22,16 +22,13 @@ public class TaskMessageService implements TaskMessageServiceInterface {
 
     public TaskMessage createMessage(Task task, TaskStatus status, String message) throws Exception
     {
-        if( message == null )
-            throw new IllegalArgumentException("Моля, подайте валидна стойност за съобщението");
-
         if( task.getCurrentStatus() == TaskStatus.COMPLETED )
             throw new Exception("Не може да смените статуса на приключена задача!");
 
         TaskMessage taskMessage = new TaskMessage();
         taskMessage.setTask(task);
         taskMessage.setStatus(status);
-        taskMessage.setMessage(message);
+        taskMessage.setMessage(Objects.requireNonNull(message, "Моля, подайте валидна стойност за съобщението"));
         taskMessage.setCreatedAt(DateUtils.Time());
         taskMessage.setUpdatedAt(DateUtils.Time());
 

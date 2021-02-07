@@ -64,7 +64,7 @@ class EmployeeServiceTest {
     @ParameterizedTest
     @MethodSource("NotValidEmployerDetails")
     void testCreateEmployeeWithInvalidDetails(String firstName, String lastName, EmployeeRoles role) {
-        assertThrows(Exception.class, ()-> this.employeeService.createEmployee(firstName, lastName, role));
+        assertThrows(NullPointerException.class, ()-> this.employeeService.createEmployee(firstName, lastName, role));
     }
 
     @Test

@@ -1,5 +1,6 @@
 package uni.plovdiv.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -54,7 +55,7 @@ public class Task {
      * Relationship One-to-Many
      * All attached sub task
      */
-    private List<Task> listSubTasks;
+    private List<Task> assignedTasks = new ArrayList<>();
 
     /**
      *
@@ -204,16 +205,16 @@ public class Task {
      *
      * @return
      */
-    public List<Task> getListSubTasks() {
-        return listSubTasks;
+    public List<Task> getAssignedTasks() {
+        return assignedTasks;
     }
 
     /**
      *
-     * @param listSubTasks
+     * @param assignedTasks
      */
-    public void setListSubTasks(List<Task> listSubTasks) {
-        this.listSubTasks = listSubTasks;
+    public void setAssignedTasks(List<Task> assignedTasks) {
+        this.assignedTasks = assignedTasks;
     }
 
     /**
@@ -222,6 +223,6 @@ public class Task {
      */
     public void assignSubTask(Task task)
     {
-        this.listSubTasks.add(task);
+        this.assignedTasks.add(task);
     }
 }

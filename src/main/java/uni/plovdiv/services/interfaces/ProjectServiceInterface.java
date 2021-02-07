@@ -9,7 +9,7 @@ public interface ProjectServiceInterface {
      * @param name
      * @return
      */
-    Project createProject(String name) throws IllegalArgumentException;
+    Project createProject(String name) throws NullPointerException;
 
     /**
      * @param project

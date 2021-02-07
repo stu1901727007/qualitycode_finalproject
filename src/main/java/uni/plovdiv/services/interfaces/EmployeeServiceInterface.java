@@ -12,7 +12,7 @@ public interface EmployeeServiceInterface {
      * @param role
      * @return
      */
-    Employee createEmployee(String firstName, String lastName, EmployeeRoles role) throws IllegalArgumentException;
+    Employee createEmployee(String firstName, String lastName, EmployeeRoles role) throws NullPointerException;
 
     /**
      *

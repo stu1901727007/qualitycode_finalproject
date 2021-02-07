@@ -6,7 +6,7 @@ import uni.plovdiv.repositories.interfaces.EmployeeRepoInterface;
 import uni.plovdiv.services.interfaces.EmployeeServiceInterface;
 import uni.plovdiv.utils.DateUtils;
 
-import java.util.Date;
+import java.util.Objects;
 
 public class EmployeeService implements EmployeeServiceInterface {
 
@@ -20,22 +20,13 @@ public class EmployeeService implements EmployeeServiceInterface {
     }
 
     @Override
-    public Employee createEmployee(String firstName, String lastName, EmployeeRoles role) throws IllegalArgumentException {
-
-        if( firstName == null )
-            throw new IllegalArgumentException("Въведете валидно име");
-
-        if( lastName == null )
-            throw new IllegalArgumentException("Въведете валидно презиме");
-
-        if( role == null )
-            throw new IllegalArgumentException("Въведете валидна роля");
+    public Employee createEmployee(String firstName, String lastName, EmployeeRoles role) throws NullPointerException {
 
         Employee employee = new Employee();
 
-        employee.setFirstName(firstName);
-        employee.setLastName(lastName);
-        employee.setRole(role);
+        employee.setFirstName(Objects.requireNonNull(firstName, "Въведете валидно име"));
+        employee.setLastName(Objects.requireNonNull(lastName, "Въведете валидно презиме"));
+        employee.setRole(Objects.requireNonNull(role, "Въведете валидна роля"));
         employee.setCreatedAt(DateUtils.Time());
         employee.setUpdatedAt(DateUtils.Time());
 
