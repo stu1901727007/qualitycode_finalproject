@@ -5,127 +5,79 @@ import java.util.Date;
 public class TaskMessage {
 
     /**
-     *
+     * Unique id, autoincrement
      */
     private int id;
 
     /**
-     *
+     * The task to which the message depends
      */
     private Task task;
 
     /**
-     *
+     * The new task status
      */
     private TaskStatus status;
 
     /**
-     *
+     * The message that explains why the status has been changed
      */
     private String message;
 
     /**
-     *
+     * The date of creation
      */
     private Date createdAt;
 
     /**
-     *
+     * The date of last update
      */
     private Date updatedAt;
 
-    /**
-     *
-     * @return
-     */
     public int getId() {
         return id;
     }
 
-    /**
-     *
-     * @param id
-     */
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     *
-     * @return
-     */
     public Task getTask() {
         return task;
     }
 
-    /**
-     *
-     * @param task
-     */
     public void setTask(Task task) {
         this.task = task;
     }
 
-    /**
-     *
-     * @return
-     */
     public TaskStatus getStatus() {
         return status;
     }
 
-    /**
-     *
-     * @param status
-     */
     public void setStatus(TaskStatus status) {
         this.status = status;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getMessage() {
         return message;
     }
 
-    /**
-     *
-     * @param message
-     */
     public void setMessage(String message) {
         this.message = message;
     }
 
-    /**
-     *
-     * @return
-     */
     public Date getCreatedAt() {
         return createdAt;
     }
 
-    /**
-     *
-     * @param createdAt
-     */
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
-    /**
-     *
-     * @return
-     */
     public Date getUpdatedAt() {
         return updatedAt;
     }
 
-    /**
-     *
-     * @param updatedAt
-     */
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }

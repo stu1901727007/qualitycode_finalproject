@@ -5,134 +5,92 @@ import java.util.Date;
 public class Employee {
 
     /**
-     *
+     * Unique id, autoincrement
      */
     private int id;
 
     /**
-     *
+     * Employee first name
      */
     private String firstName;
 
     /**
-     *
+     * Employee last name
      */
     private String lastName;
 
     /**
-     *
+     * Employee role
      */
     private EmployeeRoles role;
 
     /**
-     *
+     * The date of creation
      */
     private Date createdAt;
 
     /**
-     *
+     * The date of last update
      */
     private Date updatedAt;
 
     /**
-     *
+     * Soft delete flag. The date record has been deleted.
      */
     private Date deletedAt;
 
-    /**
-     * @return
-     */
     public int getId() {
         return id;
     }
 
-    /**
-     * @param id
-     */
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     * @return
-     */
     public String getFirstName() {
         return firstName;
     }
 
-    /**
-     * @param firstName
-     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    /**
-     * @return
-     */
     public String getLastName() {
         return lastName;
     }
 
-    /**
-     * @param lastName
-     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    /**
-     * @return
-     */
     public EmployeeRoles getRole() {
         return role;
     }
 
-    /**
-     * @param role
-     */
     public void setRole(EmployeeRoles role) {
         this.role = role;
     }
 
-    /**
-     * @return
-     */
     public Date getCreatedAt() {
         return createdAt;
     }
 
-    /**
-     * @param createdAt
-     */
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
-    /**
-     * @return
-     */
     public Date getUpdatedAt() {
         return updatedAt;
     }
 
-    /**
-     * @param updatedAt
-     */
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    /**
-     * @return
-     */
     public Date getDeletedAt() {
         return deletedAt;
     }
 
-    /**
-     * @param deletedAt
-     */
     public void setDeletedAt(Date deletedAt) {
         this.deletedAt = deletedAt;
     }
