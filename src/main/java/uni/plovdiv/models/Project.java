@@ -1,5 +1,7 @@
 package uni.plovdiv.models;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -33,12 +35,12 @@ public class Project {
     /**
      * One-to-Many
      */
-    private List<Task> assignedTasks;
+    private List<Task> assignedTasks = new ArrayList<>();
 
     /**
      * One-to-Many
      */
-    private List<Project> assignedProjects;
+    private List<Project> assignedProjects = new ArrayList<>();;
 
     /**
      * @return
@@ -111,6 +113,22 @@ public class Project {
     }
 
     /**
+     *
+     * @return
+     */
+    public List<Task> getAssignedTasks() {
+        return this.assignedTasks;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public List<Project> getAssignedProjects() {
+        return this.assignedProjects;
+    }
+
+    /**
      * @param task
      * @return
      */
@@ -126,6 +144,7 @@ public class Project {
      * @return
      */
     public Project assignProject(Project project) {
+
         this.assignedProjects.add(project);
 
         return this;

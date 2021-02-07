@@ -4,6 +4,7 @@ import uni.plovdiv.models.Employee;
 import uni.plovdiv.models.EmployeeRoles;
 import uni.plovdiv.repositories.interfaces.EmployeeRepoInterface;
 import uni.plovdiv.services.interfaces.EmployeeServiceInterface;
+import uni.plovdiv.utils.DateUtils;
 
 import java.util.Date;
 
@@ -35,8 +36,8 @@ public class EmployeeService implements EmployeeServiceInterface {
         employee.setFirstName(firstName);
         employee.setLastName(lastName);
         employee.setRole(role);
-        employee.setCreatedAt(new Date());
-        employee.setUpdatedAt(new Date());
+        employee.setCreatedAt(DateUtils.Time());
+        employee.setUpdatedAt(DateUtils.Time());
 
         //this.employeeRepo.save(employee); //if there is a database
 
@@ -47,7 +48,7 @@ public class EmployeeService implements EmployeeServiceInterface {
     @Override
     public Boolean deleteEmployee(Employee employee) {
 
-        employee.setDeletedAt(new Date());
+        employee.setDeletedAt(DateUtils.Time());
 
         //this.employeeRepo.save(employee); //if there is a database
 

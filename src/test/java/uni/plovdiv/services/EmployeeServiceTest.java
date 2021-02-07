@@ -74,10 +74,8 @@ class EmployeeServiceTest {
 
     @Test
     void testDeleteEmployee() {
-
         Employee employee = this.employeeRepo.findById(1);
         this.employeeService.deleteEmployee(employee);
-
         assertNotNull(employee.getDeletedAt());
     }
 }

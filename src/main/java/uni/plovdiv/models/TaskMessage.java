@@ -7,7 +7,7 @@ public class TaskMessage {
     /**
      *
      */
-    private String id;
+    private int id;
 
     /**
      *
@@ -38,7 +38,7 @@ public class TaskMessage {
      *
      * @return
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -46,7 +46,7 @@ public class TaskMessage {
      *
      * @param id
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -4,6 +4,7 @@ import uni.plovdiv.models.Project;
 import uni.plovdiv.models.Task;
 import uni.plovdiv.repositories.interfaces.ProjectRepoInterface;
 import uni.plovdiv.services.interfaces.ProjectServiceInterface;
+import uni.plovdiv.utils.DateUtils;
 
 import java.util.Date;
 
@@ -30,8 +31,8 @@ public class ProjectService implements ProjectServiceInterface {
 
         Project project = new Project();
         project.setName(name);
-        project.setCreatedAt(new Date());
-        project.setUpdatedAt(new Date());
+        project.setCreatedAt(DateUtils.Time());
+        project.setUpdatedAt(DateUtils.Time());
 
         return project;
     }
@@ -43,7 +44,7 @@ public class ProjectService implements ProjectServiceInterface {
     @Override
     public Boolean deleteProject(Project project) {
 
-        project.setDeletedAt(new Date());
+        project.setDeletedAt(DateUtils.Time());
 
         //this.projectRepo.save(project); //if there is a database
 

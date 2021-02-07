@@ -7,6 +7,7 @@ import uni.plovdiv.models.TaskStatus;
 import uni.plovdiv.repositories.TaskMessageRepo;
 import uni.plovdiv.repositories.interfaces.TaskRepoInterface;
 import uni.plovdiv.services.interfaces.TaskServiceInterface;
+import uni.plovdiv.utils.DateUtils;
 
 import java.util.Date;
 
@@ -30,8 +31,8 @@ public class TaskService implements TaskServiceInterface {
 
         Task task = new Task();
         task.setName(name);
-        task.setCreatedAt(new Date());
-        task.setUpdatedAt(new Date());
+        task.setCreatedAt(DateUtils.Time());
+        task.setUpdatedAt(DateUtils.Time());
         task.setCurrentStatus(TaskStatus.NEW);
         task.setProject(project);
 
@@ -47,7 +48,7 @@ public class TaskService implements TaskServiceInterface {
     @Override
     public Boolean deleteTask(Task task) {
 
-        task.setDeletedAt(new Date());
+        task.setDeletedAt(DateUtils.Time());
 
         //this.taskRepo.save(task); //if there is a database
 

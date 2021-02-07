@@ -3,6 +3,10 @@ package uni.plovdiv.models;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import uni.plovdiv.utils.DateUtils;
+
+import java.util.Calendar;
+import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,40 +24,41 @@ class TaskMessageTest {
     }
 
     @Test
-    void getTask() {
+    void testGetterSetterId() {
+        instance.setId(123);
+        assertEquals(123, instance.getId());
+    }
+
+    @Test
+    void testGetterSetterParentTask() {
         Task task = new Task();
         instance.setTask(task);
         assertEquals(task, instance.getTask());
     }
 
     @Test
-    void setTask() {
-        Task task = new Task();
-        instance.setTask(task);
-        assertEquals(task, instance.getTask());
-    }
-
-    @Test
-    void getStatus() {
-        instance.setStatus(TaskStatus.COMPLETED);
-        assertEquals(TaskStatus.COMPLETED, instance.getStatus());
-    }
-
-    @Test
-    void setStatus() {
+    void testGetterSetterStatus() {
         instance.setStatus(TaskStatus.NEW);
         assertEquals(TaskStatus.NEW, instance.getStatus());
     }
 
     @Test
-    void getMessage() {
+    void testGetterSetterMessage() {
         instance.setMessage("asd@@");
         assertEquals("asd@@", instance.getMessage());
     }
 
     @Test
-    void setMessage() {
-        instance.setMessage("abc1");
-        assertEquals("abc1", instance.getMessage());
+    void testGetterSetterCreatedAt() {
+        Date date = DateUtils.Time();
+        instance.setCreatedAt(date);
+        assertEquals(date, instance.getCreatedAt());
+    }
+
+    @Test
+    void testGetterSetterUpdateAt() {
+        Date date = DateUtils.Time();
+        instance.setUpdatedAt(date);
+        assertEquals(date, instance.getUpdatedAt());
     }
 }

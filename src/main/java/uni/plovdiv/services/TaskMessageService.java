@@ -5,6 +5,7 @@ import uni.plovdiv.models.TaskMessage;
 import uni.plovdiv.models.TaskStatus;
 import uni.plovdiv.repositories.interfaces.TaskMessageRepoInterface;
 import uni.plovdiv.services.interfaces.TaskMessageServiceInterface;
+import uni.plovdiv.utils.DateUtils;
 
 import java.util.Date;
 
@@ -31,8 +32,8 @@ public class TaskMessageService implements TaskMessageServiceInterface {
         taskMessage.setTask(task);
         taskMessage.setStatus(status);
         taskMessage.setMessage(message);
-        taskMessage.setCreatedAt(new Date());
-        taskMessage.setUpdatedAt(new Date());
+        taskMessage.setCreatedAt(DateUtils.Time());
+        taskMessage.setUpdatedAt(DateUtils.Time());
 
         //this.taskMessageRepo.save(taskMessage); //if there is a database
 
