@@ -113,6 +113,11 @@ class TaskServiceTest {
     }
 
     @Test
-    void assignEmployee() {
+    void testAssignEmployee() {
+
+        Task task = this.taskRepo.findById(1);
+        task.setAssignedEmployee(new Employee());
+
+        assertNotNull(task.getAssignedEmployee());
     }
 }

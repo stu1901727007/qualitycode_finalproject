@@ -211,14 +211,6 @@ public class Task {
 
     /**
      *
-     * @param assignedTasks
-     */
-    public void setAssignedTasks(List<Task> assignedTasks) {
-        this.assignedTasks = assignedTasks;
-    }
-
-    /**
-     *
      * @param task
      */
     public void assignSubTask(Task task)

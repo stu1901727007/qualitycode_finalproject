@@ -27,7 +27,7 @@ public class TaskMessageService implements TaskMessageServiceInterface {
 
         TaskMessage taskMessage = new TaskMessage();
         taskMessage.setTask(task);
-        taskMessage.setStatus(status);
+        taskMessage.setStatus(Objects.requireNonNull(status, "Моля, подайте валидна статус"));
         taskMessage.setMessage(Objects.requireNonNull(message, "Моля, подайте валидна стойност за съобщението"));
         taskMessage.setCreatedAt(DateUtils.Time());
         taskMessage.setUpdatedAt(DateUtils.Time());
