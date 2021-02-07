@@ -6,11 +6,14 @@ import uni.plovdiv.repositories.interfaces.EmployeeRepoInterface;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Employees repository
+ */
 public class EmployeeRepo implements EmployeeRepoInterface {
 
     /**
-     *
-     * @return
+     * Fetch all employees
+     * @return List with all employees
      */
     @Override
     public List<Employee> findAll() {
@@ -18,9 +21,9 @@ public class EmployeeRepo implements EmployeeRepoInterface {
     }
 
     /**
-     *
+     * Fetch employee based on the @param id
      * @param id
-     * @return
+     * @return Employee object
      */
     @Override
     public Employee findById(int id) {

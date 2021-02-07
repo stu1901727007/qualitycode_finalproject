@@ -9,17 +9,34 @@ import uni.plovdiv.utils.DateUtils;
 
 import java.util.Objects;
 
+/**
+ * Message's services
+ * Keeps the base logic to manipulate task messages
+ */
 public class TaskMessageService implements TaskMessageServiceInterface {
 
     final TaskMessageRepoInterface taskMessageRepo;
 
     /**
-     * @param taskMessageRepo
+     * Constructor
+     *
+     * @param taskMessageRepo instance of TaskMessageRepoInterface
      */
     public TaskMessageService(TaskMessageRepoInterface taskMessageRepo) {
         this.taskMessageRepo = taskMessageRepo;
     }
 
+    /**
+     * Create new message about the task
+     *
+     * @param task      Instance of Task. The actual task to which we change the status.
+     *                  Valid not {@code NULL}
+     * @param status    Instance of TaskStatus.Valid not {@code NULL}
+     * @param message   String representation for message that explains why we changed the status.
+     *                  Valid not {@code NULL}
+     * @return Instance of TaskMessage object
+     * @throws Exception
+     */
     public TaskMessage createMessage(Task task, TaskStatus status, String message) throws Exception
     {
         //Това е само история! Проверкат ще е в TaskService!

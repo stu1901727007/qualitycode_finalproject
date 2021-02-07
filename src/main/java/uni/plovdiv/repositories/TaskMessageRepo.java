@@ -6,10 +6,14 @@ import uni.plovdiv.repositories.interfaces.TaskMessageRepoInterface;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Task's messages repository
+ */
 public class TaskMessageRepo implements TaskMessageRepoInterface {
 
     /**
-     * @return
+     * Fetch all task's messages
+     * @return List with all messages
      */
     @Override
     public List<TaskMessage> findAll() {
@@ -17,9 +21,9 @@ public class TaskMessageRepo implements TaskMessageRepoInterface {
     }
 
     /**
-     *
+     * Fetch message based on the @param id
      * @param id
-     * @return
+     * @return TaskMessage object
      */
     @Override
     public TaskMessage findById(int id){ return null; }

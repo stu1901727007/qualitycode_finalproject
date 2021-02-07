@@ -8,20 +8,29 @@ import uni.plovdiv.utils.DateUtils;
 
 import java.util.Objects;
 
+/**
+ * Project's services
+ * Keeps the base logic to manipulate projects
+ */
 public class ProjectService implements ProjectServiceInterface {
 
     final ProjectRepoInterface projectRepo;
 
     /**
-     * @param projectRepo
+     * Constructor
+     *
+     * @param projectRepo instance of ProjectRepoInterface
      */
     public ProjectService(ProjectRepoInterface projectRepo) {
         this.projectRepo = projectRepo;
     }
 
     /**
-     * @param name
+     * Create new project
+     *
+     * @param name  String representation of project name. Valid not {@code NULL}
      * @return
+     * @throws NullPointerException
      */
     @Override
     public Project createProject(String name) throws NullPointerException {
@@ -35,8 +44,10 @@ public class ProjectService implements ProjectServiceInterface {
     }
 
     /**
-     * @param project
-     * @return
+     * Delete project. The method is going to change the flag deletedAt
+     *
+     * @param project  Object instance of Project. Valid not {@code NULL}
+     * @return Boolean true|false
      */
     @Override
     public Boolean deleteProject(Project project) {
@@ -49,9 +60,13 @@ public class ProjectService implements ProjectServiceInterface {
     }
 
     /**
-     * @param project
-     * @param task
-     * @return
+     * Assign task to selected project
+     *
+     * @param project Instance of Project. The project to which we are going to attach task
+     *                Valid not {@code NULL}
+     * @param task    Instance of Task. The actual task that we are going to attach.
+     *                Valid not {@code NULL}
+     * @return Project object
      */
     @Override
     public Project assignTask(Project project, Task task) {
@@ -62,6 +77,15 @@ public class ProjectService implements ProjectServiceInterface {
         return project;
     }
 
+    /**
+     * Assign subprojects to selected project
+     *
+     * @param project        Instance of Project. The project to which we are going to attach task
+     *                       Valid not {@code NULL}
+     * @param attachProject  Instance of Project. The actual project that we are going to attach.
+     *                       Valid not {@code NULL}
+     * @return
+     */
     @Override
     public Project assignProject(Project project, Project attachProject) {
 

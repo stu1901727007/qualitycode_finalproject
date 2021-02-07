@@ -11,20 +11,31 @@ import uni.plovdiv.utils.DateUtils;
 
 import java.util.Objects;
 
+/**
+ * Task's services
+ * Keeps the base logic to manipulate tasks
+ */
 public class TaskService implements TaskServiceInterface {
 
     final TaskRepoInterface taskRepo;
 
     /**
-     * @param taskRepo
+     * Constructor
+     *
+     * @param taskRepo instace of TaskRepoInterface
      */
     public TaskService(TaskRepoInterface taskRepo) {
         this.taskRepo = taskRepo;
     }
 
     /**
-     * @param name
-     * @return
+     * Create new task
+     *
+     * @param name      String representation of task name. Valid not {@code NULL}
+     * @param project   Instance of Project. The project to which the task belongs.
+     *                  Valid not {@code NULL}
+     * @return Instance of Task object
+     * @throws NullPointerException
      */
     @Override
     public Task createTask(String name, Project project) throws NullPointerException {
@@ -42,8 +53,10 @@ public class TaskService implements TaskServiceInterface {
     }
 
     /**
-     * @param task
-     * @return
+     * Delete task. The method is going to change the flag deletedAt
+     *
+     * @param task  Object instance of Task. Valid not {@code NULL}
+     * @return Boolean true|false
      */
     @Override
     public Boolean deleteTask(Task task) {
@@ -56,9 +69,13 @@ public class TaskService implements TaskServiceInterface {
     }
 
     /**
-     * @param task
-     * @param subTask
-     * @return
+     * Assign subtask to the task
+     *
+     * @param task      Instance of Task. The task to which we want to assign subtask.
+     *                  Valid not {@code NULL}
+     * @param subTask   Instance of Task. The actual task that we are going to assign
+     *                  Valid not {@code NULL}
+     * @return Instance of Task object
      */
     @Override
     public Task assignSubTask(Task task, Task subTask) {
@@ -71,10 +88,15 @@ public class TaskService implements TaskServiceInterface {
     }
 
     /**
+     * Change the status of task. It's going to create and record in the task's messages
      *
-     * @param task
-     * @param message
-     * @return
+     * @param task      Instance of Task. The actual task to which we change the status.
+     *                  Valid not {@code NULL}
+     * @param status    Instance of TaskStatus.Valid not {@code NULL}
+     * @param message   String representation for message that explains why we changed the status.
+     *                  Valid not {@code NULL}
+     * @return Instance of Task object
+     * @throws Exception
      */
     @Override
     public Task changeTaskStatus(Task task, TaskStatus status, String message) throws Exception {
@@ -96,7 +118,15 @@ public class TaskService implements TaskServiceInterface {
         return task;
     }
 
-
+    /**
+     * Assign task to any employee
+     *
+     * @param task      Instance of Task. The actual task to which we want to assign employee.
+     *                  Valid not {@code NULL}
+     * @param employee  Instance of Employee. The employee which we want to assign to the task
+     *                  Valid not {@code NULL}
+     * @return Instance of Task object
+     */
     @Override
     public Task assignEmployee(Task task, Employee employee) {
 

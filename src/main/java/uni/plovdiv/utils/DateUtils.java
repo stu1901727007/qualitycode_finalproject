@@ -3,6 +3,9 @@ package uni.plovdiv.utils;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Utility class about DateTime
+ */
 public class DateUtils {
 
     /**

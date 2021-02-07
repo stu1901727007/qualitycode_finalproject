@@ -2,6 +2,9 @@ package uni.plovdiv.models;
 
 import java.util.Date;
 
+/**
+ * Employee entity
+ */
 public class Employee {
 
     /**

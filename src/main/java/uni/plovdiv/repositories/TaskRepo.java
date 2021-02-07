@@ -6,10 +6,14 @@ import uni.plovdiv.repositories.interfaces.TaskRepoInterface;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Task repository
+ */
 public class TaskRepo implements TaskRepoInterface {
 
     /**
-     * @return
+     * Fetch all tasks
+     * @return List with all tasks
      */
     @Override
     public List<Task> findAll() {
@@ -17,9 +21,9 @@ public class TaskRepo implements TaskRepoInterface {
     }
 
     /**
-     *
+     * Fetch tasks based on the @param id
      * @param id
-     * @return
+     * @return Task object
      */
     @Override
     public Task findById(int id){ return null; }

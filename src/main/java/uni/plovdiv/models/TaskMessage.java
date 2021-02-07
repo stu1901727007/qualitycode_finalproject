@@ -2,6 +2,9 @@ package uni.plovdiv.models;
 
 import java.util.Date;
 
+/**
+ * Task messages entity
+ */
 public class TaskMessage {
 
     /**
