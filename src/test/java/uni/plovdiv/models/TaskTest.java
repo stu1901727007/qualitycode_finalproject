@@ -1,21 +1,22 @@
 package uni.plovdiv.models;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import uni.plovdiv.utils.DateUtils;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-class EmployeeTest {
+class TaskTest {
 
-    private Employee instance;
+    private Task instance;
 
     @BeforeEach
     void setUp() {
-        this.instance = new Employee();
+        this.instance = new Task();
     }
 
     @Test
@@ -25,21 +26,32 @@ class EmployeeTest {
     }
 
     @Test
-    void testGetterSetterFirstName() {
-        instance.setFirstName("a");
-        assertEquals("a", instance.getFirstName());
+    void testGetterSetterName() {
+        instance.setName("asd@@");
+        assertEquals("asd@@", instance.getName());
     }
 
     @Test
-    void testGetterSetterLastName() {
-        instance.setLastName("b");
-        assertEquals("b", instance.getLastName());
+    void testAssignTask()
+    {
+        List<Task> parentTasksBefore = new ArrayList<>(this.instance.getAssignedTasks());
+        this.instance.assignSubTask(new Task());
+        assertNotEquals(parentTasksBefore, this.instance.getAssignedTasks());
     }
 
     @Test
-    void testGetterSetterRole() {
-        instance.setRole(EmployeeRoles.REGULAR_DEVELOPER);
-        assertEquals(EmployeeRoles.REGULAR_DEVELOPER, instance.getRole());
+    void testSetterGetterParentTask()
+    {
+        this.instance.setParentTask(new Task());
+        assertNotNull(this.instance.getParentTask());
+    }
+
+
+    @Test
+    void testSetterGetterProject()
+    {
+        this.instance.setProject(new Project());
+        assertNotNull(this.instance.getProject());
     }
 
     @Test

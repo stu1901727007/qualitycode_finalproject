@@ -9,7 +9,7 @@ public class Task {
     /**
      *
      */
-    private String id;
+    private int id;
 
     /**
      *
@@ -61,7 +61,7 @@ public class Task {
      *
      * @return
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -69,7 +69,7 @@ public class Task {
      *
      * @param id
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

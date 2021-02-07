@@ -9,7 +9,7 @@ public class Project {
     /**
      *
      */
-    private String id;
+    private int id;
 
     /**
      *
@@ -44,14 +44,14 @@ public class Project {
     /**
      * @return
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
 
     /**
      * @param id
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -133,7 +133,6 @@ public class Project {
      */
     public Project assignTask(Task task) {
         this.assignedTasks.add(task);
-
         return this;
     }
 
@@ -145,7 +144,6 @@ public class Project {
     public Project assignProject(Project project) {
 
         this.assignedProjects.add(project);
-
         return this;
     }
 }

@@ -1,21 +1,20 @@
 package uni.plovdiv.models;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import uni.plovdiv.utils.DateUtils;
 
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-class EmployeeTest {
+class ProjectTest {
 
-    private Employee instance;
+    private Project instance;
 
     @BeforeEach
     void setUp() {
-        this.instance = new Employee();
+        this.instance = new Project();
     }
 
     @Test
@@ -25,21 +24,9 @@ class EmployeeTest {
     }
 
     @Test
-    void testGetterSetterFirstName() {
-        instance.setFirstName("a");
-        assertEquals("a", instance.getFirstName());
-    }
-
-    @Test
-    void testGetterSetterLastName() {
-        instance.setLastName("b");
-        assertEquals("b", instance.getLastName());
-    }
-
-    @Test
-    void testGetterSetterRole() {
-        instance.setRole(EmployeeRoles.REGULAR_DEVELOPER);
-        assertEquals(EmployeeRoles.REGULAR_DEVELOPER, instance.getRole());
+    void testGetterSetterName() {
+        instance.setName("asd@@");
+        assertEquals("asd@@", instance.getName());
     }
 
     @Test
