@@ -22,11 +22,12 @@ public class TaskMessageService implements TaskMessageServiceInterface {
 
     public TaskMessage createMessage(Task task, TaskStatus status, String message) throws Exception
     {
-        if( task.getCurrentStatus() == TaskStatus.COMPLETED )
-            throw new Exception("Не може да смените статуса на приключена задача!");
+        //Това е само история! Проверкат ще е в TaskService!
+        //if( task.getCurrentStatus() == TaskStatus.COMPLETED )
+        //    throw new Exception("Не може да смените статуса на приключена задача!");
 
         TaskMessage taskMessage = new TaskMessage();
-        taskMessage.setTask(task);
+        taskMessage.setTask(Objects.requireNonNull(task, "Не може задачата да е Null"));
         taskMessage.setStatus(Objects.requireNonNull(status, "Моля, подайте валидна статус"));
         taskMessage.setMessage(Objects.requireNonNull(message, "Моля, подайте валидна стойност за съобщението"));
         taskMessage.setCreatedAt(DateUtils.Time());

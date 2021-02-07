@@ -92,9 +92,13 @@ class TaskServiceTest {
     }
 
     @Test
-    void testChangeTaskStatusCompletedTask() throws Exception  {
+    void testChangeTaskStatusToCompletedTask() throws Exception  {
         Task task = this.taskService.createTask("Test task", new Project());
-        assertThrows(Exception.class, () -> this.taskService.changeTaskStatus(task, TaskStatus.COMPLETED, "some text"));
+
+        task.setAssignedEmployee(new Employee());
+        task.setCurrentStatus( TaskStatus.COMPLETED );
+
+        assertThrows(Exception.class, () -> this.taskService.changeTaskStatus(task, TaskStatus.IN_PROGRESS, "some text"));
     }
 
     @Test
@@ -116,8 +120,7 @@ class TaskServiceTest {
     void testAssignEmployee() {
 
         Task task = this.taskRepo.findById(1);
-        task.setAssignedEmployee(new Employee());
-
+        this.taskService.assignEmployee(task, new Employee());
         assertNotNull(task.getAssignedEmployee());
     }
 }
