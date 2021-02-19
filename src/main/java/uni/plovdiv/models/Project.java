@@ -45,7 +45,7 @@ public class Project {
      */
     private List<Project> assignedProjects = new ArrayList<>();;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

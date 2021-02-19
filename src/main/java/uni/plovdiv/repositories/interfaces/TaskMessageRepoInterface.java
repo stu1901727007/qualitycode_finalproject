@@ -1,5 +1,6 @@
 package uni.plovdiv.repositories.interfaces;
 
+import uni.plovdiv.models.Project;
 import uni.plovdiv.models.TaskMessage;
 
 import java.util.List;
@@ -7,15 +8,20 @@ import java.util.List;
 public interface TaskMessageRepoInterface {
 
     /**
-     * 
      * @return
      */
     List<TaskMessage> findAll();
 
     /**
-     *
      * @param id
      * @return
      */
     TaskMessage findById(int id);
+
+
+    /**
+     * @param message
+     * @return
+     */
+    TaskMessage save(TaskMessage message);
 }

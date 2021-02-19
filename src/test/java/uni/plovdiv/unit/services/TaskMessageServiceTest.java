@@ -1,4 +1,4 @@
-package uni.plovdiv.services;
+package uni.plovdiv.unit.services;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,6 +12,7 @@ import uni.plovdiv.models.TaskMessage;
 import uni.plovdiv.models.TaskStatus;
 import uni.plovdiv.repositories.interfaces.TaskMessageRepoInterface;
 import uni.plovdiv.repositories.interfaces.TaskRepoInterface;
+import uni.plovdiv.services.TaskMessageService;
 import uni.plovdiv.services.interfaces.TaskMessageServiceInterface;
 import uni.plovdiv.services.interfaces.TaskServiceInterface;
 

@@ -54,7 +54,7 @@ public class ProjectService implements ProjectServiceInterface {
 
         project.setDeletedAt(DateUtils.Time());
 
-        //this.projectRepo.save(project); //if there is a database
+        this.projectRepo.save(project); //if there is a database
 
         return true;
     }
@@ -72,7 +72,7 @@ public class ProjectService implements ProjectServiceInterface {
     public Project assignTask(Project project, Task task) {
         project.assignTask(task);
 
-        //this.projectRepo.save(project); //if there is a database
+        this.projectRepo.save(project); //if there is a database
 
         return project;
     }

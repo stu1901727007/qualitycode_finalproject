@@ -42,7 +42,8 @@ public class Employee {
      */
     private Date deletedAt;
 
-    public int getId() {
+
+    public Integer getId() {
         return id;
     }
 

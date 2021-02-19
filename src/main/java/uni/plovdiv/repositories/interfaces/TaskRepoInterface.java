@@ -1,21 +1,26 @@
 package uni.plovdiv.repositories.interfaces;
 
 import uni.plovdiv.models.Task;
+import uni.plovdiv.models.TaskMessage;
 
 import java.util.List;
 
 public interface TaskRepoInterface {
 
     /**
-     * 
      * @return
      */
     List<Task> findAll();
 
     /**
-     *
      * @param id
      * @return
      */
     Task findById(int id);
+
+    /**
+     * @param task
+     * @return
+     */
+    Task save(Task task);
 }

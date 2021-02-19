@@ -3,8 +3,9 @@ package uni.plovdiv.repositories;
 import uni.plovdiv.models.Employee;
 import uni.plovdiv.repositories.interfaces.EmployeeRepoInterface;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Employees repository
@@ -12,21 +13,53 @@ import java.util.List;
 public class EmployeeRepo implements EmployeeRepoInterface {
 
     /**
+     * List with records
+     */
+    private List<Employee> employees = new ArrayList<>();
+
+    /**
      * Fetch all employees
+     *
      * @return List with all employees
      */
     @Override
     public List<Employee> findAll() {
-        return Collections.emptyList();
+        return this.employees;
     }
 
     /**
      * Fetch employee based on the @param id
+     *
      * @param id
      * @return Employee object
      */
     @Override
     public Employee findById(int id) {
-        return null;
+
+        Optional<Employee> employee = this.employees.stream().filter(p -> p.getId().equals(id)).findFirst();
+
+        if (employee.isPresent())
+            return employee.get();
+        else
+            return null;
+    }
+
+    /**
+     * Saves changes to the List
+     *
+     * @param employee
+     * @return
+     */
+    @Override
+    public Employee save(Employee employee) {
+
+        if (employee.getId() == 0) {
+            employee.setId((int) (this.employees.size() + 1));
+            this.employees.add(employee);
+        } else {
+            this.employees.set(employee.getId() - 1, employee);
+        }
+
+        return employee;
     }
 }

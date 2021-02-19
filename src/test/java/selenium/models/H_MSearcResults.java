@@ -1,4 +1,4 @@
-package uni.plovdiv.selenium.models;
+package selenium.models;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

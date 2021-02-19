@@ -46,10 +46,9 @@ public class EmployeeService implements EmployeeServiceInterface {
         employee.setCreatedAt(DateUtils.Time());
         employee.setUpdatedAt(DateUtils.Time());
 
-        //this.employeeRepo.save(employee); //if there is a database
+        this.employeeRepo.save(employee);
 
         return employee;
-
     }
 
     /**
@@ -63,10 +62,7 @@ public class EmployeeService implements EmployeeServiceInterface {
 
         employee.setDeletedAt(DateUtils.Time());
 
-        //this.employeeRepo.save(employee); //if there is a database
-        //if( this.employeeRepo.save(employee) )
-            //return true
-        //return false;
+        this.employeeRepo.save(employee);
 
         return true;
     }

@@ -1,4 +1,4 @@
-package uni.plovdiv.services;
+package uni.plovdiv.unit.services;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import uni.plovdiv.models.Employee;
 import uni.plovdiv.models.EmployeeRoles;
 import uni.plovdiv.repositories.interfaces.EmployeeRepoInterface;
+import uni.plovdiv.services.EmployeeService;
 import uni.plovdiv.services.interfaces.EmployeeServiceInterface;
 
 import java.util.Arrays;

@@ -1,8 +1,10 @@
-package uni.plovdiv.models;
+package uni.plovdiv.unit.models;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import uni.plovdiv.models.Employee;
+import uni.plovdiv.models.EmployeeRoles;
 import uni.plovdiv.utils.DateUtils;
 
 import java.util.Date;

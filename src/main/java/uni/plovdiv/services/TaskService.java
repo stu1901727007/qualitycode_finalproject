@@ -109,7 +109,7 @@ public class TaskService implements TaskServiceInterface {
 
         task.setCurrentStatus( status );
 
-        //this.taskRepo.save(task); //if there is a database
+        this.taskRepo.save(task); //if there is a database
 
         //Create new message
         TaskMessageService taskMessageService = new TaskMessageService( new TaskMessageRepo());
@@ -132,7 +132,7 @@ public class TaskService implements TaskServiceInterface {
 
         task.setAssignedEmployee(employee);
 
-        //this.taskRepo.save(task); //if there is a database
+        this.taskRepo.save(task); //if there is a database
 
         return task;
     }

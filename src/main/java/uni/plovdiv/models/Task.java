@@ -60,7 +60,7 @@ public class Task {
      */
     private List<Task> assignedTasks = new ArrayList<>();
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

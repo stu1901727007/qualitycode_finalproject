@@ -39,7 +39,7 @@ public class TaskMessageService implements TaskMessageServiceInterface {
      */
     public TaskMessage createMessage(Task task, TaskStatus status, String message) throws Exception
     {
-        //Това е само история! Проверкат ще е в TaskService!
+        //Това е само история! Проверката ще е в TaskService!
         //if( task.getCurrentStatus() == TaskStatus.COMPLETED )
         //    throw new Exception("Не може да смените статуса на приключена задача!");
 
@@ -50,7 +50,7 @@ public class TaskMessageService implements TaskMessageServiceInterface {
         taskMessage.setCreatedAt(DateUtils.Time());
         taskMessage.setUpdatedAt(DateUtils.Time());
 
-        //this.taskMessageRepo.save(taskMessage); //if there is a database
+        this.taskMessageRepo.save(taskMessage); //if there is a database
 
         return taskMessage;
     }

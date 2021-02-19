@@ -1,8 +1,11 @@
-package uni.plovdiv.models;
+package uni.plovdiv.unit.models;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import uni.plovdiv.models.Task;
+import uni.plovdiv.models.TaskMessage;
+import uni.plovdiv.models.TaskStatus;
 import uni.plovdiv.utils.DateUtils;
 
 import java.util.Calendar;

@@ -1,15 +1,17 @@
-package uni.plovdiv.selenium;
+package selenium;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
-
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import uni.plovdiv.selenium.models.H_MSearcResults;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import selenium.models.H_MSearcResults;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -51,10 +53,10 @@ public class FirstSelenuimTest {
 
         assertAll(
                 () -> {
-                    assertEquals(result, expectedURL);
+                    assertEquals(expectedURL, result);
                 },
                 () -> {
-                    assertEquals(header.getText(), "ПОКАЗВАНЕ НА РЕЗУЛТАТИ ЗА \"очила\"");
+                    assertEquals("ПОКАЗВАНЕ НА РЕЗУЛТАТИ ЗА \"очила\"", header.getText());
                 }
         );
     }
@@ -82,36 +84,40 @@ public class FirstSelenuimTest {
 
         driver.get(hrefFirst.getAttribute("href"));
 
-        WebElement price =  driver.findElement(By.cssSelector("#product-price span"));
-        WebElement title =  driver.findElement(By.cssSelector("h1.product-item-headline"));
+        WebElement price = driver.findElement(By.cssSelector("#product-price span"));
+        WebElement title = driver.findElement(By.cssSelector("h1.product-item-headline"));
 
 
         assertAll(
                 () -> {
-                    assertEquals(title.getText(), "Кръгли слънчеви очила");
+                    assertEquals("Очила с прозрачни рамки", title.getText());
                 },
                 () -> {
-                    assertEquals(price.getText(), "14,99 лв");
+                    assertEquals("14,99 лв", price.getText());
                 }
         );
     }
 
 
     @Test
-    public void testHMFilterSearchResults() {
+    public void testHMFilterSearchResults() throws InterruptedException {
 
         hMSearcResults.navigateToMain();
-        hMSearcResults.setSearchValue("очила");
+        hMSearcResults.setSearchValue("дънки");
         hMSearcResults.clickSearchButton();
 
-        WebElement filterByKids = driver.findElement(By.id("dropdown-kids_all"));
-        filterByKids.click();
+        //WebDriverWait wait = new WebDriverWait(driver, 10);
+        //WebElement filterByladies = wait.until(ExpectedConditions.elementToBeClickable(By.id("dropdown-kids_all")));
+        //filterByladies.click();
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("$('#dropdown-ladies_all').trigger('click');");
+
 
         List<WebElement> productListing = driver.findElements(By.cssSelector("a.item-link"));
 
         assertFalse(productListing.isEmpty());
     }
-
 
 
     @Test
@@ -123,7 +129,7 @@ public class FirstSelenuimTest {
 
         List<WebElement> productListing = driver.findElements(By.cssSelector("a.item-link"));
 
-        for (int i=0; i<=2; i++) {
+        for (int i = 0; i <= 2; i++) {
             WebElement item = productListing.get(i);
             WebElement favoritesButton = item.findElement(By.cssSelector(".js-favorite"));
             favoritesButton.click();
