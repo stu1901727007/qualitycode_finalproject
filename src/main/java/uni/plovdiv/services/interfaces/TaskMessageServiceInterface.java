@@ -7,7 +7,6 @@ import uni.plovdiv.models.TaskStatus;
 public interface TaskMessageServiceInterface {
 
     /**
-     *
      * @param task
      * @param status
      * @param message

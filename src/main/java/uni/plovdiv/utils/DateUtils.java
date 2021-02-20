@@ -10,7 +10,8 @@ public class DateUtils {
 
     /**
      * Gets current date time
-     * @return Surrent date time as Date object
+     *
+     * @return Current date time as Date object
      */
     static public Date Time()
     {

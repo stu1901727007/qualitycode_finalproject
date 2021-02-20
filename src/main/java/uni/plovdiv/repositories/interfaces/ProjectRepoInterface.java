@@ -1,6 +1,5 @@
 package uni.plovdiv.repositories.interfaces;
 
-import uni.plovdiv.models.Employee;
 import uni.plovdiv.models.Project;
 
 import java.util.List;

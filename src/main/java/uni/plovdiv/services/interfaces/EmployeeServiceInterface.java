@@ -15,7 +15,6 @@ public interface EmployeeServiceInterface {
     Employee createEmployee(String firstName, String lastName, EmployeeRoles role) throws NullPointerException;
 
     /**
-     *
      * @param employee
      * @return
      */

@@ -30,7 +30,7 @@ public class EmployeeRepo implements EmployeeRepoInterface {
     /**
      * Fetch employee based on the @param id
      *
-     * @param id
+     * @param id Represents the unique number from employees. Valid not {@code NULL}
      * @return Employee object
      */
     @Override
@@ -47,7 +47,7 @@ public class EmployeeRepo implements EmployeeRepoInterface {
     /**
      * Saves changes to the List
      *
-     * @param employee
+     * @param employee Object instance of Employee. Valid not {@code NULL}
      * @return
      */
     @Override

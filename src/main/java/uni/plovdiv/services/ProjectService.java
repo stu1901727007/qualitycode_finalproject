@@ -70,9 +70,10 @@ public class ProjectService implements ProjectServiceInterface {
      */
     @Override
     public Project assignTask(Project project, Task task) {
+
         project.assignTask(task);
 
-        this.projectRepo.save(project); //if there is a database
+        this.projectRepo.save(project);
 
         return project;
     }
@@ -91,7 +92,7 @@ public class ProjectService implements ProjectServiceInterface {
 
         project.assignProject(attachProject);
 
-        //this.projectRepo.save(project); //if there is a database
+        this.projectRepo.save(project);
 
         return project;
     }

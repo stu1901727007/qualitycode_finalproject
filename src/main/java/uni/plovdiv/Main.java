@@ -1,5 +1,14 @@
 package uni.plovdiv;
 
+import uni.plovdiv.models.Employee;
+import uni.plovdiv.models.EmployeeRoles;
+import uni.plovdiv.models.Project;
+import uni.plovdiv.models.Task;
+import uni.plovdiv.services.EmployeeService;
+import uni.plovdiv.services.ProjectService;
+import uni.plovdiv.services.TaskMessageService;
+import uni.plovdiv.services.TaskService;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -28,7 +37,6 @@ public class Main {
          * На задача, която е завършена не може да се сменя статуса.
          *
          */
-
 
         System.out.println("It works!");
     }

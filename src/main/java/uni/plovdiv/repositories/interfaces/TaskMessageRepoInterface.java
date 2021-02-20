@@ -1,6 +1,5 @@
 package uni.plovdiv.repositories.interfaces;
 
-import uni.plovdiv.models.Project;
 import uni.plovdiv.models.TaskMessage;
 
 import java.util.List;

@@ -54,7 +54,7 @@ public class EmployeeService implements EmployeeServiceInterface {
     /**
      * Delete employee. The method is going to change the flag deletedAt
      *
-     * @param employee  Object instance of Employee. Valid not {@code NULL}
+     * @param employee Object instance of Employee. Valid not {@code NULL}
      * @return Boolean true|false
      */
     @Override

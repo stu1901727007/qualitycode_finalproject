@@ -1,11 +1,9 @@
 package uni.plovdiv.repositories;
 
 import uni.plovdiv.models.Task;
-import uni.plovdiv.models.TaskMessage;
 import uni.plovdiv.repositories.interfaces.TaskRepoInterface;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +30,7 @@ public class TaskRepo implements TaskRepoInterface {
     /**
      * Fetch tasks based on the @param id
      *
-     * @param id
+     * @param id Instance of Task. Valid not {@code NULL}
      * @return Task object
      */
     @Override

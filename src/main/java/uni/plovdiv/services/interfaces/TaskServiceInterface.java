@@ -14,7 +14,6 @@ public interface TaskServiceInterface {
     Task createTask(String name, Project project) throws NullPointerException;
 
     /**
-     *
      * @param task
      * @param status
      * @param message
@@ -30,7 +29,6 @@ public interface TaskServiceInterface {
     Boolean deleteTask(Task task);
 
     /**
-     *
      * @param task
      * @param subTask
      * @return
@@ -38,7 +36,6 @@ public interface TaskServiceInterface {
     Task assignSubTask(Task task, Task subTask);
 
     /**
-     *
      * @param task
      * @param employee
      * @return

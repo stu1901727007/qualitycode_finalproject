@@ -1,12 +1,9 @@
 package uni.plovdiv.repositories;
 
-import uni.plovdiv.models.Employee;
 import uni.plovdiv.models.Project;
-import uni.plovdiv.models.TaskMessage;
 import uni.plovdiv.repositories.interfaces.ProjectRepoInterface;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,7 +47,7 @@ public class ProjectRepo implements ProjectRepoInterface {
     /**
      * Saves changes to the List
      *
-     * @param project
+     * @param project Instance of Project. Valid not {@code NULL
      * @return
      */
     @Override

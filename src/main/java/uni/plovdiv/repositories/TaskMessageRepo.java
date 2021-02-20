@@ -1,12 +1,9 @@
 package uni.plovdiv.repositories;
 
-import uni.plovdiv.models.Project;
-import uni.plovdiv.models.Task;
 import uni.plovdiv.models.TaskMessage;
 import uni.plovdiv.repositories.interfaces.TaskMessageRepoInterface;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,7 +47,7 @@ public class TaskMessageRepo implements TaskMessageRepoInterface {
     /**
      * Saves changes to the List
      *
-     * @param message
+     * @param message  Instance of Task. Valid not {@code NULL}
      * @return
      */
     @Override

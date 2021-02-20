@@ -50,7 +50,7 @@ public class TaskMessageService implements TaskMessageServiceInterface {
         taskMessage.setCreatedAt(DateUtils.Time());
         taskMessage.setUpdatedAt(DateUtils.Time());
 
-        this.taskMessageRepo.save(taskMessage); //if there is a database
+        this.taskMessageRepo.save(taskMessage);
 
         return taskMessage;
     }
