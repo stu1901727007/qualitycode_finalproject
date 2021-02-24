@@ -1,5 +1,8 @@
 package uni.plovdiv.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,6 +10,8 @@ import java.util.List;
 /**
  * Task entity
  */
+@Setter
+@Getter
 public class Task {
 
     /**
@@ -60,82 +65,29 @@ public class Task {
      */
     private List<Task> assignedTasks = new ArrayList<>();
 
+    /**
+     * Returns the Id and casts it
+     *
+     * @return the id casted in Integer object
+     */
     public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
-    public Task getParentTask() {
-        return parentTask;
-    }
-
-    public void setParentTask(Task parentTask) {
-        this.parentTask = parentTask;
-    }
-
-    public TaskStatus getCurrentStatus() {
-        return currentStatus;
-    }
-
-    public void setCurrentStatus(TaskStatus currentStatus) {
-        this.currentStatus = currentStatus;
-    }
-
-    public Employee getAssignedEmployee() {
-        return assignedEmployee;
-    }
-
-    public void setAssignedEmployee(Employee assignedEmployee) {
-        this.assignedEmployee = assignedEmployee;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public Date getDeletedAt() {
-        return deletedAt;
-    }
-
-    public void setDeletedAt(Date deletedAt) {
-        this.deletedAt = deletedAt;
-    }
-
+    /**
+     * Retrieve the list with assigned sub-tasks
+     *
+     * @return List with Task object
+     */
     public List<Task> getAssignedTasks() {
         return assignedTasks;
     }
 
+    /**
+     * Add a task to the list with sub-tasks
+     *
+     * @param task representation of Task object. Valid not {@code NULL}
+     */
     public void assignSubTask(Task task) {
         this.assignedTasks.add(task);
     }

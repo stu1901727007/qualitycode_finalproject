@@ -1,5 +1,8 @@
 package uni.plovdiv.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,7 +10,8 @@ import java.util.List;
 /**
  * Project entity
  */
-
+@Setter
+@Getter
 public class Project {
 
     /**
@@ -41,63 +45,35 @@ public class Project {
     private List<Task> assignedTasks = new ArrayList<>();
 
     /**
-     * One-to-Many
+     * Returns the Id and casts it
+     *
+     * @return the id casted in Integer object
      */
-    private List<Project> assignedProjects = new ArrayList<>();;
-
     public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    /**
+     * One-to-Many
+     */
+    private List<Project> assignedProjects = new ArrayList<>();;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public Date getDeletedAt() {
-        return deletedAt;
-    }
-
-    public void setDeletedAt(Date deletedAt) {
-        this.deletedAt = deletedAt;
-    }
-
-    public List<Task> getAssignedTasks() {
-        return this.assignedTasks;
-    }
-
-    public List<Project> getAssignedProjects() {
-        return this.assignedProjects;
-    }
-
+    /**
+     * Add a task to the list with assigned tasks
+     *
+     * @return Project object for chaining
+     */
     public Project assignTask(Task task) {
         this.assignedTasks.add(task);
         return this;
     }
 
+    /**
+     * Add a  project to the list with assigned projects
+     *
+     * @param project representation of Project object. Valid not {@code NULL}
+     * @return Project object for chaining
+     */
     public Project assignProject(Project project) {
 
         this.assignedProjects.add(project);
