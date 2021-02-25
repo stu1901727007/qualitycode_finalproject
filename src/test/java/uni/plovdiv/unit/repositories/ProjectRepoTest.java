@@ -14,6 +14,9 @@ class ProjectRepoTest {
 
     private ProjectRepoInterface projectRepo;
 
+    /**
+     * Init before each run
+     */
     @BeforeEach
     void setUp() {
 
@@ -31,12 +34,18 @@ class ProjectRepoTest {
         this.projectRepo.save(project);
     }
 
+    /**
+     * Tests find all
+     */
     @Test
     void findAll() {
         List<Project> projects = this.projectRepo.findAll();
         assertNotNull(projects);
     }
 
+    /**
+     * Tests find by id with successful result
+     */
     @Test
     void findByIdSuccess() {
 
@@ -44,12 +53,18 @@ class ProjectRepoTest {
         assertEquals("Project 2", project.getName());
     }
 
+    /**
+     * Tests find by id with null result
+     */
     @Test
     void findByIdNull() {
         Project project = this.projectRepo.findById(11);
         assertNull(project);
     }
 
+    /**
+     * Tests save new record
+     */
     @Test
     void testSaveNew() {
 
@@ -60,6 +75,9 @@ class ProjectRepoTest {
         assertEquals(2, project.getId());
     }
 
+    /**
+     * Tests save with update
+     */
     @Test
     void testSaveUpdate() {
         Project project = new Project();

@@ -17,21 +17,26 @@ class TaskMessageTest {
 
     private TaskMessage instance;
 
+    /**
+     * Init before each run
+     */
     @BeforeEach
     void setUp() {
         this.instance = new TaskMessage();
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterId() {
         instance.setId(123);
         assertEquals(123, instance.getId());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterParentTask() {
         Task task = new Task();
@@ -39,18 +44,27 @@ class TaskMessageTest {
         assertEquals(task, instance.getTask());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterStatus() {
         instance.setStatus(TaskStatus.NEW);
         assertEquals(TaskStatus.NEW, instance.getStatus());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterMessage() {
         instance.setMessage("asd@@");
         assertEquals("asd@@", instance.getMessage());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterCreatedAt() {
         Date date = DateUtils.Time();
@@ -58,6 +72,9 @@ class TaskMessageTest {
         assertEquals(date, instance.getCreatedAt());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterUpdateAt() {
         Date date = DateUtils.Time();

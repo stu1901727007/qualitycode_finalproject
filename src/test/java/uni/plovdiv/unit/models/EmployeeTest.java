@@ -15,35 +15,53 @@ class EmployeeTest {
 
     private Employee instance;
 
+    /**
+     * Init before each run
+     */
     @BeforeEach
     void setUp() {
         this.instance = new Employee();
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterId() {
         instance.setId(123);
         assertEquals(123, instance.getId());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterFirstName() {
         instance.setFirstName("a");
         assertEquals("a", instance.getFirstName());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterLastName() {
         instance.setLastName("b");
         assertEquals("b", instance.getLastName());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterRole() {
         instance.setRole(EmployeeRoles.REGULAR_DEVELOPER);
         assertEquals(EmployeeRoles.REGULAR_DEVELOPER, instance.getRole());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterCreatedAt() {
         Date date = DateUtils.Time();
@@ -51,6 +69,9 @@ class EmployeeTest {
         assertEquals(date, instance.getCreatedAt());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterUpdateAt() {
         Date date = DateUtils.Time();
@@ -58,6 +79,9 @@ class EmployeeTest {
         assertEquals(date, instance.getUpdatedAt());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterDeletedAt() {
         Date date = DateUtils.Time();

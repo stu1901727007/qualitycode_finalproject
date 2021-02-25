@@ -25,6 +25,9 @@ class EmployeeServiceTest {
     private EmployeeRepoInterface employeeRepo;
     private EmployeeServiceInterface employeeService;
 
+    /**
+     * Init before each run
+     */
     @BeforeEach
     void setUp() {
 
@@ -43,12 +46,10 @@ class EmployeeServiceTest {
         this.employeeService = new EmployeeService(this.employeeRepo);
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
     /**
-     * @return
+     * Streams arguments to test employee creations process
+     *
+     * @return Stream<Arguments>
      */
     private static Stream<Arguments> NotValidEmployerDetails() {
         return Stream.of(
@@ -62,17 +63,30 @@ class EmployeeServiceTest {
         );
     }
 
+    /**
+     * Tests not valid employee details
+     *
+     * @param firstName String representation of first name
+     * @param lastName String representation of last name
+     * @param role String representation of role
+     */
     @ParameterizedTest
     @MethodSource("NotValidEmployerDetails")
     void testCreateEmployeeWithInvalidDetails(String firstName, String lastName, EmployeeRoles role) {
         assertThrows(NullPointerException.class, ()-> this.employeeService.createEmployee(firstName, lastName, role));
     }
 
+    /**
+     * Tests creation of employee with valid details
+     */
     @Test
     void testCreateEmployeeWithValidDetails() {
         assertTrue(this.employeeService.createEmployee("a", "b", EmployeeRoles.REGULAR_DEVELOPER) instanceof Employee);
     }
 
+    /**
+     * Tests employee deletion
+     */
     @Test
     void testDeleteEmployee() {
         Employee employee = this.employeeRepo.findById(1);

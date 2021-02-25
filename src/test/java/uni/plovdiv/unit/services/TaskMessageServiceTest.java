@@ -29,6 +29,9 @@ class TaskMessageServiceTest {
     private TaskMessageServiceInterface taskMessageService;
     private TaskMessageRepoInterface taskMessageRepo;
 
+    /**
+     * Init before each run
+     */
     @BeforeEach
     void setUp() {
         this.taskMessageRepo = mock(TaskMessageRepoInterface.class);
@@ -46,12 +49,10 @@ class TaskMessageServiceTest {
         this.taskMessageService = new TaskMessageService(this.taskMessageRepo);
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
     /**
-     * @return
+     * Streams arguments to test task's messages creations process
+     *
+     * @return Stream<Arguments>
      */
     private static Stream<Arguments> NotValidTaskMessageDetails() {
         return Stream.of(
@@ -65,12 +66,24 @@ class TaskMessageServiceTest {
         );
     }
 
+    /**
+     * Tests not valid task's message details
+     *
+     * @param task representation of Task object
+     * @param status representation of TaskStatus object
+     * @param message String representation of message
+     * @throws Exception
+     */
     @ParameterizedTest
     @MethodSource("NotValidTaskMessageDetails")
     void testCreateTaskMessgaeWithInvalidDetails(Task task, TaskStatus status, String message) throws Exception {
         assertThrows(NullPointerException.class, () -> this.taskMessageService.createMessage(task, status, message));
     }
 
+
+    /**
+     * Tests creation of task's message with valid details
+     */
     @Test
     void testCreateTaskMessgaeWithValidDetails() throws Exception {
         assertTrue(this.taskMessageService.createMessage(new Task(), TaskStatus.IN_PROGRESS, "a") instanceof TaskMessage);

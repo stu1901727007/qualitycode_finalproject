@@ -19,6 +19,9 @@ class TaskMessageRepoTest {
 
     private TaskMessageRepoInterface taskMessageRepo;
 
+    /**
+     * Init before each run
+     */
     @BeforeEach
     void setUp() {
         this.taskMessageRepo = new TaskMessageRepo();
@@ -32,12 +35,18 @@ class TaskMessageRepoTest {
         this.taskMessageRepo.save(message);
     }
 
+    /**
+     * Tests find all
+     */
     @Test
     void findAll() {
         List<TaskMessage> messages = this.taskMessageRepo.findAll();
         assertNotNull(messages);
     }
 
+    /**
+     * Tests find by id with successful result
+     */
     @Test
     void findByIdSuccess() {
 
@@ -45,12 +54,18 @@ class TaskMessageRepoTest {
         assertEquals("MTEST", message.getMessage());
     }
 
+    /**
+     * Tests find by id with null result
+     */
     @Test
     void findByIdNull() {
         TaskMessage message = this.taskMessageRepo.findById(11);
         assertNull(message);
     }
 
+    /**
+     * Tests save new record
+     */
     @Test
     void testSaveNew() {
         TaskMessage message = new TaskMessage();
@@ -60,6 +75,9 @@ class TaskMessageRepoTest {
         assertEquals(2, message.getId());
     }
 
+    /**
+     * Tests save with update
+     */
     @Test
     void testSaveUpdate() {
         TaskMessage message = new TaskMessage();

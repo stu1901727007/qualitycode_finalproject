@@ -16,23 +16,35 @@ class TaskTest {
 
     private Task instance;
 
+    /**
+     * Init before each run
+     */
     @BeforeEach
     void setUp() {
         this.instance = new Task();
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterId() {
         instance.setId(123);
         assertEquals(123, instance.getId());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterName() {
         instance.setName("asd@@");
         assertEquals("asd@@", instance.getName());
     }
 
+    /**
+     * Tests task assigment
+     */
     @Test
     void testAssignTask()
     {
@@ -41,6 +53,9 @@ class TaskTest {
         assertNotEquals(parentTasksBefore, this.instance.getAssignedTasks());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testSetterGetterParentTask()
     {
@@ -56,6 +71,9 @@ class TaskTest {
         assertNotNull(this.instance.getProject());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterCreatedAt() {
         Date date = DateUtils.Time();
@@ -63,6 +81,9 @@ class TaskTest {
         assertEquals(date, instance.getCreatedAt());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterUpdateAt() {
         Date date = DateUtils.Time();
@@ -70,6 +91,9 @@ class TaskTest {
         assertEquals(date, instance.getUpdatedAt());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterDeletedAt() {
         Date date = DateUtils.Time();

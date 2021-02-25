@@ -28,6 +28,9 @@ class TaskServiceTest {
     private TaskServiceInterface taskService;
     private TaskRepoInterface taskRepo;
 
+    /**
+     * Init before each run
+     */
     @BeforeEach
     void setUp() {
         this.taskRepo = mock(TaskRepoInterface.class);
@@ -43,13 +46,10 @@ class TaskServiceTest {
         this.taskService = new TaskService(this.taskRepo);
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
-
     /**
-     * @return
+     * Streams arguments to test tasks creations process
+     *
+     * @return Stream<Arguments>
      */
     private static Stream<Arguments> NotValidTaskDetails() {
         return Stream.of(
@@ -59,17 +59,29 @@ class TaskServiceTest {
         );
     }
 
+    /**
+     * Tests not valid task details
+     *
+     * @param name String representation of name
+     * @param project representation of Project
+     */
     @ParameterizedTest
     @MethodSource("NotValidTaskDetails")
     void testCreateTaskWithInvalidDetails(String name, Project project) {
         assertThrows(NullPointerException.class, () -> this.taskService.createTask(name, project));
     }
 
+    /**
+     * Tests creation of task with valid details
+     */
     @Test
     void testCreateTaskWithCorrectName() {
         assertTrue(this.taskService.createTask("Task 1", new Project()) instanceof Task);
     }
 
+    /**
+     * Test task deletion
+     */
     @Test
     void testDeleteTask() {
         Task task = this.taskRepo.findById(1);
@@ -77,6 +89,9 @@ class TaskServiceTest {
         assertNotNull(task.getDeletedAt());
     }
 
+    /**
+     * Tests subtask assigment
+     */
     @Test
     void testAssignSubTask() {
 
@@ -92,6 +107,11 @@ class TaskServiceTest {
         assertNotEquals(parentTasksBefore, task.getAssignedTasks());
     }
 
+    /**
+     * Test changing task status to completed
+     *
+     * @throws Exception
+     */
     @Test
     void testChangeTaskStatusToCompletedTask() throws Exception  {
         Task task = this.taskService.createTask("Test task", new Project());
@@ -102,12 +122,22 @@ class TaskServiceTest {
         assertThrows(Exception.class, () -> this.taskService.changeTaskStatus(task, TaskStatus.IN_PROGRESS, "some text"));
     }
 
+    /**
+     * Tests task status change without assigned employee
+     *
+     * @throws Exception
+     */
     @Test
     void testChangeTaskStatusWithoutEmployeeTask() throws Exception  {
         Task task = this.taskService.createTask("Test task", new Project());
         assertThrows(Exception.class, () -> this.taskService.changeTaskStatus(task, TaskStatus.IN_PROGRESS, "some text"));
     }
 
+    /**
+     * Tests task status change with assigned employee
+     *
+     * @throws Exception
+     */
     @Test
     void testChangeTaskStatusWithEmployeeTask() throws Exception  {
         Task task = this.taskService.createTask("Test task", new Project());
@@ -117,6 +147,11 @@ class TaskServiceTest {
         assertEquals(task.getCurrentStatus(), TaskStatus.IN_PROGRESS);
     }
 
+    /**
+     * Tests employee assigment
+     *
+     * @throws Exception
+     */
     @Test
     void testAssignEmployee() {
 

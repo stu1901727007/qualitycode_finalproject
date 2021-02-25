@@ -15,6 +15,9 @@ class EmployeeRepoTest {
 
     private EmployeeRepo employeeRepo;
 
+    /**
+     * Init before each run
+     */
     @BeforeEach
     void setUp() {
         this.employeeRepo = new EmployeeRepo();
@@ -27,24 +30,36 @@ class EmployeeRepoTest {
         this.employeeRepo.save(employee);
     }
 
+    /**
+     * Tests find all
+     */
     @Test
     void findAll() {
         List<Employee> employee = this.employeeRepo.findAll();
         assertNotNull(employee);
     }
 
+    /**
+     * Tests find by id with successful result
+     */
     @Test
     void findByIdSuccess() {
         Employee employee = this.employeeRepo.findById(1);
         assertEquals("a", employee.getFirstName());
     }
 
+    /**
+     * Tests find by id with null result
+     */
     @Test
     void findByIdNull() {
         Employee employee = this.employeeRepo.findById(11);
         assertNull(employee);
     }
 
+    /**
+     * Tests save new record
+     */
     @Test
     void testSaveNew() {
         Employee employee = new Employee();
@@ -56,6 +71,9 @@ class EmployeeRepoTest {
         assertEquals(2, employee.getId());
     }
 
+    /**
+     * Tests save with update
+     */
     @Test
     void testSaveUpdate() {
         Employee employee = new Employee();

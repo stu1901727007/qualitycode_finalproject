@@ -19,6 +19,9 @@ class TaskRepoTest {
 
     private TaskRepoInterface taskRepo;
 
+    /**
+     * Init before each run
+     */
     @BeforeEach
     void setUp() {
         this.taskRepo = new TaskRepo();
@@ -31,12 +34,18 @@ class TaskRepoTest {
         this.taskRepo.save(task);
     }
 
+    /**
+     * Tests find all
+     */
     @Test
     void findAll() {
         List<Task> tasks = this.taskRepo.findAll();
         assertNotNull(tasks);
     }
 
+    /**
+     * Tests find by id with successful result
+     */
     @Test
     void findByIdSuccess() {
 
@@ -44,12 +53,18 @@ class TaskRepoTest {
         assertEquals("TASK 1", task.getName());
     }
 
+    /**
+     * Tests find by id with null result
+     */
     @Test
     void findByIdNull() {
         Task task = this.taskRepo.findById(11);
         assertNull(task);
     }
 
+    /**
+     * Tests save new record
+     */
     @Test
     void testSaveNew() {
         Task task = new Task();
@@ -59,6 +74,9 @@ class TaskRepoTest {
         assertEquals(2, task.getId());
     }
 
+    /**
+     * Tests save with update
+     */
     @Test
     void testSaveUpdate() {
         Task task = new Task();

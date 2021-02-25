@@ -31,6 +31,9 @@ public class FirstSelenuimTest {
         hMSearcResults = new H_MSearcResults(driver);
     }
 
+    /**
+     * Validate that github icon exists
+     */
     @Test
     public void testSpringDocsGitHubIconExists() {
         driver.get("https://spring.io/projects/spring-boot");

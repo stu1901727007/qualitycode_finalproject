@@ -24,6 +24,9 @@ class ProjectServiceTest {
     private ProjectServiceInterface projectService;
     private ProjectRepoInterface projectRepo;
 
+    /**
+     * Init before each run
+     */
     @BeforeEach
     void setUp() {
         this.projectRepo = mock(ProjectRepoInterface.class);
@@ -46,21 +49,26 @@ class ProjectServiceTest {
         this.projectService = new ProjectService(this.projectRepo);
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
+    /**
+     * Tests project creation with {@code NULL} name
+     */
     @Test
     void testCreateProjectWithNullName() {
         assertThrows(NullPointerException.class, () -> this.projectService.createProject(null));
     }
 
+    /**
+     * Tests project creation with correct name
+     */
     @Test
     void testCreateProjectWithCorrectName() {
 
         assertTrue(this.projectService.createProject("Project 1") instanceof Project);
     }
 
+    /**
+     * Tests project deletion
+     */
     @Test
     void testDeleteProject() {
         Project project = this.projectRepo.findById(1);
@@ -68,6 +76,9 @@ class ProjectServiceTest {
         assertNotNull(project.getDeletedAt());
     }
 
+    /**
+     * Test task assigment
+     */
     @Test
     void testAssignTask() {
         Project project = this.projectRepo.findById(1);
@@ -80,6 +91,9 @@ class ProjectServiceTest {
         assertNotSame(listTasksBefore, project.getAssignedTasks());
     }
 
+    /**
+     * Test project assigment
+     */
     @Test
     void testAssignProject() {
 

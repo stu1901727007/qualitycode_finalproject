@@ -13,23 +13,35 @@ class ProjectTest {
 
     private Project instance;
 
+    /**
+     * Init before each run
+     */
     @BeforeEach
     void setUp() {
         this.instance = new Project();
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterId() {
         instance.setId(123);
         assertEquals(123, instance.getId());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterName() {
         instance.setName("asd@@");
         assertEquals("asd@@", instance.getName());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterCreatedAt() {
         Date date = DateUtils.Time();
@@ -37,6 +49,9 @@ class ProjectTest {
         assertEquals(date, instance.getCreatedAt());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterUpdateAt() {
         Date date = DateUtils.Time();
@@ -44,6 +59,9 @@ class ProjectTest {
         assertEquals(date, instance.getUpdatedAt());
     }
 
+    /**
+     * Tests getter & setter
+     */
     @Test
     void testGetterSetterDeletedAt() {
         Date date = DateUtils.Time();

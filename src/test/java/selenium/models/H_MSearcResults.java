@@ -22,7 +22,7 @@ public class H_MSearcResults {
     WebElement productListing;
 
     /**
-     * Constructor Initialize instance of Wikipedia Page object Model
+     * Constructor Initialize instance of Page object Model
      *
      * @param driver
      */
@@ -31,23 +31,44 @@ public class H_MSearcResults {
         PageFactory.initElements(driver, this);
     }
 
+    /**
+     * Navivate to main url
+     */
     public void navigateToMain() {
         driver.get("https://www2.hm.com/bg_bg/index.html");
     }
 
+    /**
+     * Send string as keyboard event
+     *
+     * @param searchValue String
+     */
     public void setSearchValue(String searchValue) {
         searchInput.clear();
         searchInput.sendKeys(searchValue);
     }
 
+    /**
+     * Send click event to DOM Node
+     */
     public void clickSearchButton() {
         searchButton.click();
     }
 
+    /**
+     * Searches for DOM Node
+     *
+     * @return WebElement object with searched DOM node
+     */
     public WebElement getHeaderElement() {
         return driver.findElement(By.tagName("h1"));
     }
 
+    /**
+     * Searches for DOM Nodes
+     *
+     * @return List with WebElement objects
+     */
     public List<WebElement> getListWithProducts() {
         return productListing.findElements(By.className("item-link"));
     }
