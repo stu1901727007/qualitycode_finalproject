@@ -42,6 +42,9 @@ public class FirstSelenuimTest {
         assertEquals("https://github.com/spring-projects/spring-boot", result);
     }
 
+    /**
+     * Validates search result and the main header of the page
+     */
     @Test
     public void testHMSearchResults() {
 
@@ -64,7 +67,9 @@ public class FirstSelenuimTest {
         );
     }
 
-
+    /**
+     * Validates that search result pahe is not empty
+     */
     @Test
     public void testHMSearchHasResults() {
 
@@ -75,6 +80,9 @@ public class FirstSelenuimTest {
         assertFalse(products.isEmpty());
     }
 
+    /**
+     * Validates the first product title and price
+     */
     @Test
     public void testHMDetailsProduct() {
 
@@ -101,7 +109,11 @@ public class FirstSelenuimTest {
         );
     }
 
-
+    /**
+     * Validates that the there are products after filter has been applied
+     *
+     * @throws InterruptedException
+     */
     @Test
     public void testHMFilterSearchResults() throws InterruptedException {
 
@@ -122,7 +134,9 @@ public class FirstSelenuimTest {
         assertFalse(productListing.isEmpty());
     }
 
-
+    /**
+     * Validates Favorites functionality
+     */
     @Test
     public void testHMAddToFavorites() {
 
@@ -144,6 +158,9 @@ public class FirstSelenuimTest {
         assertEquals(3, favoites.size());
     }
 
+    /**
+     * Closes the connection
+     */
     @AfterEach
     void tearDown() {
         driver.close();
